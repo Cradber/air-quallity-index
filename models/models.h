@@ -151,5 +151,47 @@ class So2  : public ParamAdapter<V> {};
 class T    : public ParamAdapter<V> {};
 
 
+class Iaqi {
+private:
+    Co   co;
+    H    h;
+    No2  no2;
+    O3   o3;
+    P    p;
+    Pm10 pm10;
+    Pm25 pm25;
+    So2  so2;
+    T    t;
+
+public:
+    inline const Co & get_co() const { return co; }
+    inline void set_co(const Co & value) { this->co = value; }
+
+    inline const H & get_h() const { return h; }
+    inline void set_h(const H & value) { this->h = value; }
+
+    inline const No2 & get_no2() const { return no2; }
+    inline void set_no2(const No2 & value) { this->no2 = value; }
+
+    inline const O3 & get_o3() const { return o3; }
+    inline void set_o3(const O3 & value) { this->o3 = value; }
+
+    inline const P & get_p() const { return p; }
+    inline void set_p(const P & value) { this->p = value; }
+
+    inline const Pm10 & get_pm10() const { return pm10; }
+    inline void set_pm10(const Pm10 & value) { this->pm10 = value; }
+
+    inline const Pm25 & get_pm25() const { return pm25; }
+    inline void set_pm25(const Pm25 & value) { this->pm25 = value; }
+
+    inline const So2 & get_so2() const { return so2; }
+    inline void set_so2(const So2 & value) { this->so2 = value; }
+
+    inline const T & get_t() const { return t; }
+    inline void set_t(const T & value) { this->t = value; }
+};
+
+
 
 #endif // MODELS_H
