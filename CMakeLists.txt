@@ -32,7 +32,8 @@ add_executable(air-quallity-index main.cpp
     serialization/json_serialization.h
     serialization/nlohmann/jsonserializernlohmann.h
     serialization/nlohmann/attributionsserializer.h
-    serialization/nlohmann/cityserialization.h)
+    serialization/nlohmann/cityserialization.h
+    serialization/nlohmann/debugserialization.h)
 
 # Incluir directorios
 target_include_directories(air-quallity-index PRIVATE include)
