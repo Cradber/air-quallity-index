@@ -269,6 +269,32 @@ struct adl_serializer<Iaqi> {
     }
 };
 
+template <>
+struct adl_serializer<Data> {
+    static void from_json(const json& j, Data& data) {
+        data.set_aqi(j.at("aqi").get<long>());
+        data.set_idx(j.at("idx").get<long>());
+        data.set_attributions(j.at("attributions").get<std::vector<Attributions>>());
+        data.set_city(j.at("city").get<City>());
+        data.set_dominentpol(j.at("dominentpol").get<std::string>());
+        data.set_iaqi(j.at("iaqi").get<Iaqi>());
+        data.set_time(j.at("time").get<Time>());
+        data.set_forecast(j.at("forecast").get<Forecast>());
+        data.set_debug(j.at("debug").get<Debug>());
+    }
+    static void to_json(json& j, const Data& data) {
+        j["aqi"] = data.get_aqi();
+        j["idx"] = data.get_idx();
+        j["attributions"] = data.get_attributions();
+        j["city"] = data.get_city();
+        j["dominentpol"] = data.get_dominentpol();
+        j["iaqi"] = data.get_iaqi();
+        j["time"] = data.get_time();
+        j["forecast"] = data.get_forecast();
+        j["debug"] = data.get_debug();
+    }
+};
+
 }
 
 
