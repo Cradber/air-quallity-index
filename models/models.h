@@ -60,4 +60,31 @@ public:
 
 
 
+class Metrics {
+private:
+    double avg;
+    double max;
+    double min;
+    std::string day;
+
+public:
+    Metrics() = default;
+    Metrics(double avg, double min, double max, std::string day)
+        : avg(avg), min(min), max(max), day(day) {}
+    virtual ~Metrics() = default;
+
+    double get_avg() const { return avg; }
+    void set_avg(double avg) { this->avg = avg; }
+
+    double get_min() const { return min; }
+    void set_min(double min) { this->min= min; }
+
+    double get_max() const { return max; }
+    void set_max(double max) { this->max= max; }
+
+    std::string get_day() const { return day; }
+    void set_day(std::string day) { this->day= day; }
+};
+
+
 #endif // MODELS_H
