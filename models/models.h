@@ -132,5 +132,8 @@ public:
 };
 
 
+class Forecast : public ParamAdapter<Daily> {};
+
+
 
 #endif // MODELS_H
