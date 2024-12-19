@@ -116,5 +116,21 @@ public:
 };
 
 
+template <typename T>
+class ParamAdapter {
+private:
+    T data;
+
+protected:
+    ParamAdapter() = default;
+    explicit ParamAdapter(const T& data);
+    virtual ~ParamAdapter() = default;
+
+public:
+    const T& get() const;
+    void set(const T& data);
+};
+
+
 
 #endif // MODELS_H
