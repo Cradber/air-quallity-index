@@ -131,6 +131,25 @@ struct adl_serializer<Metrics> {
         j["max"] = metric.get_max();
     }
 };
+
+template<>
+struct adl_serializer<Daily> {
+    static void from_json(const json& j, Daily& daily) {
+        daily.set_o3(j.at("o3").get<std::vector<Metrics>>());
+        daily.set_pm10(j.at("pm10").get<std::vector<Metrics>>());
+        daily.set_pm25(j.at("pm25").get<std::vector<Metrics>>());
+        daily.set_uvi(j.at("uvi").get<std::vector<Metrics>>());
+    }
+
+    static void to_json(json& j, const Daily& daily) {
+        j = json::object();
+        j["o3"] = daily.get_o3();
+        j["pm10"] = daily.get_pm10();
+        j["pm25"] = daily.get_pm25();
+        j["uvi"] = daily.get_uvi();
+    }
+};
+
 }
 
 
