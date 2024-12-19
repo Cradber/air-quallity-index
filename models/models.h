@@ -3,6 +3,7 @@
 
 #include <string>
 #include <array>
+#include <vector>
 
 
 class Attributions {
@@ -59,7 +60,6 @@ public:
 };
 
 
-
 class Metrics {
 private:
     double avg;
@@ -85,6 +85,36 @@ public:
     std::string get_day() const { return day; }
     void set_day(std::string day) { this->day= day; }
 };
+
+
+class Daily {
+private:
+    std::vector<Metrics> o3;
+    std::vector<Metrics> pm10;
+    std::vector<Metrics> pm25;
+    std::vector<Metrics> uvi;
+
+public:
+    Daily() = default;
+    Daily(std::vector<Metrics> o3,
+          std::vector<Metrics> pm10,
+          std::vector<Metrics> pm25,
+          std::vector<Metrics> uvi);
+    virtual ~Daily() = default;
+
+    std::vector<Metrics> get_o3() const;
+    void set_o3(std::vector<Metrics> o3);
+
+    std::vector<Metrics> get_pm10() const;
+    void set_pm10(std::vector<Metrics> pm10);
+
+    std::vector<Metrics> get_pm25() const;
+    void set_pm25(std::vector<Metrics> pm25);
+
+    std::vector<Metrics> get_uvi() const;
+    void set_uvi(std::vector<Metrics> uvi);
+};
+
 
 
 #endif // MODELS_H
