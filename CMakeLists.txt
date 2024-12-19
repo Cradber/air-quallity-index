@@ -39,6 +39,7 @@ add_executable(air-quallity-index main.cpp
     serialization/nlohmann/forecastserializer.h
     serialization/nlohmann/ParamAdapterDSerializer.h
     serialization/nlohmann/IaqiSerializer.h
+    serialization/nlohmann/TimeSerializer.h
 )
 
 # Incluir directorios
