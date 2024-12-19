@@ -32,8 +32,8 @@ add_executable(air-quallity-index main.cpp
     serialization/json_serialization.h
     serialization/nlohmann/jsonserializernlohmann.h
     serialization/nlohmann/attributionsserializer.h
-    serialization/nlohmann/cityserialization.h
-    serialization/nlohmann/debugserialization.h
+    serialization/nlohmann/cityserializer.h
+    serialization/nlohmann/debugserializer.h
     serialization/nlohmann/metricsserializer.h
     serialization/nlohmann/dailyserializer.h
     serialization/nlohmann/forecastserializer.h
@@ -41,6 +41,8 @@ add_executable(air-quallity-index main.cpp
     serialization/nlohmann/IaqiSerializer.h
     serialization/nlohmann/TimeSerializer.h
     serialization/nlohmann/DataSerializer.h
+    serialization/nlohmann/ResponseAPISerializer.h
+    factories/jsonserializernlohmannaqifactory.h
 )
 
 # Incluir directorios
