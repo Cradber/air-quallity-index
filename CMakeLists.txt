@@ -25,7 +25,8 @@ FetchContent_Declare(
 ) # Replace with your desired git commit from: https://github.com/libcpr/cpr/releases
 FetchContent_MakeAvailable(cpr)
 
-add_executable(air-quallity-index main.cpp)
+add_executable(air-quallity-index main.cpp
+    models/models.h)
 
 # Incluir directorios
 target_include_directories(air-quallity-index PRIVATE include)
