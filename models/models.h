@@ -17,17 +17,18 @@ private:
 
 public:
     Attributions() = default;
-    Attributions(std::string url, std::string name, std::optional<std::string> logo);
+    Attributions(std::string url, std::string name, std::optional<std::string> logo)
+        : url(url), name(name), logo(logo ? logo : std::nullopt) {}
     virtual ~Attributions() = default;
 
-    std::string get_url() const;
-    void set_url(std::string url);
+    std::string get_url() const { return url; }
+    void set_url(std::string url) { this->url = url; }
 
-    std::string get_name() const;
-    void set_name(std::string name);
+    std::string get_name() const { return name; }
+    void set_name(std::string name) { this->name = name; }
 
-    std::optional<std::string> get_logo();
-    void set_logo(std::optional<std::string> logo);
+    std::optional<std::string> get_logo() { return logo; }
+    void set_logo(std::optional<std::string> logo) { this->logo = logo ? logo : std::nullopt; }
 };
 
 
