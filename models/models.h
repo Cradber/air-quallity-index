@@ -135,5 +135,9 @@ public:
 class Forecast : public ParamAdapter<Daily> {};
 
 
+using Sync = std::string;
+class Debug: public ParamAdapter<Sync> {};
+
+
 
 #endif // MODELS_H
