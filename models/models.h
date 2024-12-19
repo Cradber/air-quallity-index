@@ -193,5 +193,32 @@ public:
 };
 
 
+class Time {
+private:
+    std::string s;
+    std::string tz;
+    std::string iso;
+    double      v;
+
+public:
+    Time() = default;
+    Time(std::string s, std::string tz, std::string iso, double v)
+        : s(s), tz(tz), iso(iso), v(v) {}
+    virtual ~Time() = default;
+
+    inline std::string get_s() const { return s; }
+    inline void set_s(std::string s) { this->s = s; }
+
+    inline std::string get_tz() const { return tz; }
+    inline void set_tz(std::string tz) { this->tz= tz; }
+
+    inline std::string get_iso() const { return iso; }
+    inline void set_iso(std::string iso) { this->iso= iso; }
+
+    inline double get_v() const { return v; }
+    inline void set_v(double v) { this->v = v; }
+};
+
+
 
 #endif // MODELS_H
