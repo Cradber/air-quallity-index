@@ -1,5 +1,5 @@
-#ifndef PARAMADAPTERDSERIALIZATION
-#define PARAMADAPTERDSERIALIZATION
+#ifndef PARAMADAPTERDSERIALIZER_H
+#define PARAMADAPTERDSERIALIZER_H
 
 #include "models/models.h"
 #include "serialization/nlohmann/jsonserializernlohmann.h"
@@ -25,4 +25,4 @@ public:
     }
 };
 
-#endif // PARAMADAPTERDSERIALIZATION
+#endif // PARAMADAPTERDSERIALIZER_H

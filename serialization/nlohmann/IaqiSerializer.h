@@ -1,5 +1,5 @@
-#ifndef IAQISERIALIZATION_H
-#define IAQISERIALIZATION_H
+#ifndef IAQISERIALIZER_H
+#define IAQISERIALIZER_H
 
 #include "models/models.h"
 #include "serialization/nlohmann/jsonserializernlohmann.h"
@@ -41,4 +41,4 @@ public:
 
 };
 
-#endif // IAQISERIALIZATION_H
+#endif // IAQISERIALIZER_H

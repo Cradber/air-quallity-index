@@ -1,5 +1,5 @@
-#ifndef TIMESERIALIZATION_H
-#define TIMESERIALIZATION_H
+#ifndef TIMESERIALIZER_H
+#define TIMESERIALIZER_H
 
 #include "models/models.h"
 #include "serialization/nlohmann/jsonserializernlohmann.h"
@@ -31,4 +31,4 @@ public:
 };
 
 
-#endif // TIMESERIALIZATION_H
+#endif // TIMESERIALIZER_H

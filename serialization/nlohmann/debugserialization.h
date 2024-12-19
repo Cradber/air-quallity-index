@@ -1,5 +1,5 @@
-#ifndef DEBUGSERIALIZATION_H
-#define DEBUGSERIALIZATION_H
+#ifndef DEBUGSERIALIZER_H
+#define DEBUGSERIALIZER_H
 
 #include "models/models.h"
 #include "serialization/nlohmann/jsonserializernlohmann.h"
@@ -26,4 +26,4 @@ public:
 };
 
 
-#endif // DEBUGSERIALIZATION_H
+#endif // DEBUGSERIALIZER_H

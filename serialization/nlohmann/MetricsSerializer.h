@@ -1,5 +1,5 @@
-#ifndef METRICSSERIALIZATION_H
-#define METRICSSERIALIZATION_H
+#ifndef METRICSSERIALIZER_H
+#define METRICSSERIALIZER_H
 
 
 #include "models/models.h"
@@ -32,4 +32,4 @@ public:
     }
 };
 
-#endif // METRCISSERIALIZATION_H
+#endif // METRCISSERIALIZER_H

@@ -1,5 +1,5 @@
-#ifndef FORECASTSERIALIZER
-#define FORECASTSERIALIZER
+#ifndef FORECASTSERIALIZER_H
+#define FORECASTSERIALIZER_H
 
 #include "models/models.h"
 #include "serialization/nlohmann/jsonserializernlohmann.h"
@@ -24,4 +24,4 @@ public:
 
 };
 
-#endif // FORECASTSERIALIZER
+#endif // FORECASTSERIALIZER_H

@@ -1,5 +1,5 @@
-#ifndef CITYSERIALIZATION_H
-#define CITYSERIALIZATION_H
+#ifndef CITYSERIALIZER_H
+#define CITYSERIALIZER_H
 
 
 #include "nlohmann/json.hpp"
@@ -34,4 +34,4 @@ public:
 };
 
 
-#endif // CITYSERIALIZATION_H
+#endif // CITYSERIALIZER_H
