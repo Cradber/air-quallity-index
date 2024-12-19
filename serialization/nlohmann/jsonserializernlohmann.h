@@ -1,6 +1,7 @@
 #ifndef JSONSERIALIZERNLOHMANN_H
 #define JSONSERIALIZERNLOHMANN_H
 
+#include "models/models.h"
 #include "nlohmann/json.hpp"
 #include "serialization/json_serialization.h"
 
@@ -110,6 +111,28 @@ inline std::optional<T> get_stack_optional(const json& j, std::string property) 
 }
 
 #endif // NLOHMANN_OPTIONAL_aqi_HELPER
+
+
+namespace nlohmann {
+template <>
+struct adl_serializer<Metrics> {
+    static void from_json(const json& j, Metrics& metric) {
+        metric.set_avg(j.at("avg").get<double>());
+        metric.set_day(j.at("day").get<std::string>());
+        metric.set_min(j.at("min").get<double>());
+        metric.set_max(j.at("max").get<double>());
+    }
+
+    static void to_json(json& j, const Metrics& metric) {
+        j = json::object();
+        j["avg"] = metric.get_avg();
+        j["day"] = metric.get_day();
+        j["min"] = metric.get_min();
+        j["max"] = metric.get_max();
+    }
+};
+}
+
 
 
 template <typename T>
