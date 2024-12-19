@@ -114,6 +114,7 @@ inline std::optional<T> get_stack_optional(const json& j, std::string property) 
 
 
 namespace nlohmann {
+
 template <>
 struct adl_serializer<Metrics> {
     static void from_json(const json& j, Metrics& metric) {
@@ -171,6 +172,102 @@ template <> struct adl_serializer<Pm10> : adl_serializer<ParamAdapter<double>> {
 template <> struct adl_serializer<Pm25> : adl_serializer<ParamAdapter<double>> {};
 template <> struct adl_serializer<So2>  : adl_serializer<ParamAdapter<double>> {};
 template <> struct adl_serializer<T>    : adl_serializer<ParamAdapter<double>> {};
+
+template <>
+struct adl_serializer<City> {
+    static void from_json(const json& j, City& city) {
+        city.set_geo(j.at("geo").get<std::array<double,2>>());
+        city.set_name(j.at("name").get<std::string>());
+        city.set_url(j.at("url").get<std::string>());
+        city.set_location(j.at("location").get<std::string>());
+    }
+
+    static void to_json(json& j, const City& city) {
+        j = json::object();
+        j["geo"] = city.get_geo();
+        j["name"] = city.get_name();
+        j["url"] = city.get_url();
+        j["location"] = city.get_location();
+    }
+};
+
+template <>
+struct adl_serializer<Attributions> {
+    static void from_json(const json& j, Attributions& attribution) {
+        attribution.set_url(j.at("url").get<std::string>());
+        attribution.set_name(j.at("name").get<std::string>());
+        attribution.set_logo(get_stack_optional<std::string>(j, "logo"));
+    }
+
+    static void to_json(json& j, const Attributions& attribution) {
+        j = json::object();
+        j["url"] = attribution.get_url();
+        j["name"] = attribution.get_name();
+        j["logo"] = attribution.get_logo();
+    }
+};
+
+template <>
+struct adl_serializer<Time> {
+    static void from_json(const json& j, Time& time) {
+        time.set_s(j.at("s").get<std::string>());
+        time.set_tz(j.at("tz").get<std::string>());
+        time.set_v(j.at("v").get<double>());
+        time.set_iso(j.at("iso").get<std::string>());
+    }
+    static void to_json(json& j, const Time& time) {
+        j["s"]   = time.get_s();
+        j["tz"]  = time.get_tz();
+        j["v"]   = time.get_v();
+        j["iso"] = time.get_iso();
+    }
+};
+
+template <>
+struct adl_serializer<Debug> {
+    static void from_json(const json& j, Debug& debug) {
+        debug.set(j.at("sync").get<std::string>());
+    }
+    static void to_json(json& j, const Debug& debug) {
+        j["sync"] = debug.get();
+    }
+};
+
+template <>
+struct adl_serializer<Forecast> {
+    static void from_json(const json& j, Forecast& forecast) {
+        forecast.set(j.at("daily").get<Daily>());
+    }
+    static void to_json(json& j, const Forecast& forecast) {
+        j["forecast"] = forecast.get();
+    }
+};
+
+template <>
+struct adl_serializer<Iaqi> {
+    static void from_json(const json& j, Iaqi& iaqi) {
+        iaqi.set_co(j.at("co").get<Co>());
+        iaqi.set_h(j.at("h").get<H>());
+        iaqi.set_no2(j.at("no2").get<No2>());
+        iaqi.set_o3(j.at("o3").get<O3>());
+        iaqi.set_p(j.at("p").get<P>());
+        iaqi.set_pm10(j.at("pm10").get<Pm10>());
+        iaqi.set_pm25(j.at("pm25").get<Pm25>());
+        iaqi.set_so2(j.at("so2").get<So2>());
+        iaqi.set_t(j.at("t").get<T>());
+    }
+    static void to_json(json& j, const Iaqi& iaqi) {
+        j["co"]   = iaqi.get_co();
+        j["h"]    = iaqi.get_h();
+        j["no2"]  = iaqi.get_no2();
+        j["o3"]   = iaqi.get_o3();
+        j["p"]    = iaqi.get_p();
+        j["pm10"] = iaqi.get_pm10();
+        j["pm25"] = iaqi.get_pm25();
+        j["so2"]  = iaqi.get_so2();
+        j["t"]    = iaqi.get_t();
+    }
+};
 
 }
 
