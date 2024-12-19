@@ -126,12 +126,12 @@ private:
 
 protected:
     ParamAdapter() = default;
-    explicit ParamAdapter(const T& data);
+    explicit ParamAdapter(const T& data) : data(data) {}
     virtual ~ParamAdapter() = default;
 
 public:
-    const T& get() const;
-    void set(const T& data);
+    const T& get() const { return data; }
+    void set(const T& data) { this->data = data; }
 };
 
 
