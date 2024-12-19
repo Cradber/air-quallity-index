@@ -25,8 +25,13 @@ FetchContent_Declare(
 ) # Replace with your desired git commit from: https://github.com/libcpr/cpr/releases
 FetchContent_MakeAvailable(cpr)
 
+include_directories(${CMAKE_SOURCE_DIR})
+
 add_executable(air-quallity-index main.cpp
-    models/models.h)
+    models/models.h
+    serialization/json_serialization.h
+    serialization/nlohmann/jsonserializernlohmann.h
+    serialization/nlohmann/attributionsserializer.h)
 
 # Incluir directorios
 target_include_directories(air-quallity-index PRIVATE include)

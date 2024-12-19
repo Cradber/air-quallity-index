@@ -27,7 +27,7 @@ public:
     std::string get_name() const { return name; }
     void set_name(std::string name) { this->name = name; }
 
-    std::optional<std::string> get_logo() { return logo; }
+    std::optional<std::string> get_logo() const { return logo; }
     void set_logo(std::optional<std::string> logo) { this->logo = logo ? logo : std::nullopt; }
 };
 
