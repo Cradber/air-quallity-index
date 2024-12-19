@@ -27,22 +27,12 @@ FetchContent_MakeAvailable(cpr)
 
 include_directories(${CMAKE_SOURCE_DIR})
 
+file(GLOB SERIALIZATION_NLOHMANN_FILES "serialization/nlohmann/serializers/*.h")
+
 add_executable(air-quallity-index main.cpp
     models/models.h
-    serialization/json_serialization.h
-    serialization/nlohmann/jsonserializernlohmann.h
-    serialization/nlohmann/attributionsserializer.h
-    serialization/nlohmann/cityserializer.h
-    serialization/nlohmann/debugserializer.h
-    serialization/nlohmann/metricsserializer.h
-    serialization/nlohmann/dailyserializer.h
-    serialization/nlohmann/forecastserializer.h
-    serialization/nlohmann/ParamAdapterDSerializer.h
-    serialization/nlohmann/IaqiSerializer.h
-    serialization/nlohmann/TimeSerializer.h
-    serialization/nlohmann/DataSerializer.h
-    serialization/nlohmann/ResponseAPISerializer.h
-    factories/jsonserializernlohmannaqifactory.h
+    ${SERIALIZATION_NLOHMANN_FILES}
+    factories/json_serializer_nlohmann_aqi_factory.h
 )
 
 # Incluir directorios
