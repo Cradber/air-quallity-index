@@ -150,6 +150,28 @@ struct adl_serializer<Daily> {
     }
 };
 
+template <>
+struct adl_serializer<ParamAdapter<double>> {
+    static void from_json(const json& j, ParamAdapter<double>& co) {
+        co.set(j.at("v").get<double>());
+    }
+
+    static void to_json(json& j, const ParamAdapter<double>& co) {
+        j = json::object();
+        j["v"] = co.get();
+    }
+};
+
+template <> struct adl_serializer<Co>   : adl_serializer<ParamAdapter<double>> {};
+template <> struct adl_serializer<H>    : adl_serializer<ParamAdapter<double>> {};
+template <> struct adl_serializer<No2>  : adl_serializer<ParamAdapter<double>> {};
+template <> struct adl_serializer<O3>   : adl_serializer<ParamAdapter<double>> {};
+template <> struct adl_serializer<P>    : adl_serializer<ParamAdapter<double>> {};
+template <> struct adl_serializer<Pm10> : adl_serializer<ParamAdapter<double>> {};
+template <> struct adl_serializer<Pm25> : adl_serializer<ParamAdapter<double>> {};
+template <> struct adl_serializer<So2>  : adl_serializer<ParamAdapter<double>> {};
+template <> struct adl_serializer<T>    : adl_serializer<ParamAdapter<double>> {};
+
 }
 
 
