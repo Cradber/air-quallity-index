@@ -102,20 +102,21 @@ public:
     Daily(std::vector<Metrics> o3,
           std::vector<Metrics> pm10,
           std::vector<Metrics> pm25,
-          std::vector<Metrics> uvi);
+          std::vector<Metrics> uvi)
+        : o3(o3), pm10(pm10), pm25(pm25), uvi(uvi) {}
     virtual ~Daily() = default;
 
-    std::vector<Metrics> get_o3() const;
-    void set_o3(std::vector<Metrics> o3);
+    std::vector<Metrics> get_o3() const { return o3; }
+    void set_o3(std::vector<Metrics> o3) { this->o3 = o3; }
 
-    std::vector<Metrics> get_pm10() const;
-    void set_pm10(std::vector<Metrics> pm10);
+    std::vector<Metrics> get_pm10() const { return pm10; }
+    void set_pm10(std::vector<Metrics> pm10) { this->pm10= pm10; }
 
-    std::vector<Metrics> get_pm25() const;
-    void set_pm25(std::vector<Metrics> pm25);
+    std::vector<Metrics> get_pm25() const { return pm25; }
+    void set_pm25(std::vector<Metrics> pm25) { this->pm25 = pm25; }
 
-    std::vector<Metrics> get_uvi() const;
-    void set_uvi(std::vector<Metrics> uvi);
+    std::vector<Metrics> get_uvi() const { return uvi; }
+    void set_uvi(std::vector<Metrics> uvi) { this->uvi = uvi; }
 };
 
 
