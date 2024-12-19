@@ -1,9 +1,12 @@
 #ifndef MODELS_H
 #define MODELS_H
 
+#include <iostream>
 #include <string>
 #include <array>
 #include <vector>
+
+#include "nlohmann/detail/macro_scope.hpp"
 
 
 class Attributions {
@@ -262,6 +265,43 @@ public:
 
     inline const Debug & get_debug() const { return debug; }
     inline void set_debug(const Debug & value) { this->debug = value; }
+};
+
+
+enum class StatusResponseAPI {
+    OK = 200,
+    ERROR = 400
+};
+NLOHMANN_JSON_SERIALIZE_ENUM(StatusResponseAPI,{
+    {StatusResponseAPI::OK, "ok"},
+    {StatusResponseAPI::ERROR, "error"}
+});
+std::ostream& operator<<(std::ostream& out, const StatusResponseAPI& status) {
+    switch (status) {
+    case StatusResponseAPI::OK:
+        out << "ok (2xx)" << std::endl;
+        break;
+    case StatusResponseAPI::ERROR:
+        out << "error (4xx)" << std::endl;
+        break;
+    }
+    return out;
+}
+
+class ResponseAPI {
+private:
+    StatusResponseAPI status;
+    Data data;
+
+public:
+    ResponseAPI() = default;
+    virtual ~ResponseAPI() = default;
+
+    inline StatusResponseAPI get_status() const { return status; }
+    inline void set_status(StatusResponseAPI status) { this->status = status; }
+
+    inline const Data get_data() const { return data; }
+    inline void set_data(const Data& data) { this->data = data; }
 };
 
 
