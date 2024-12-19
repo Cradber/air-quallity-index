@@ -220,5 +220,50 @@ public:
 };
 
 
+class Data {
+private:
+    long aqi;
+    long idx;
+    std::vector<Attributions> attributions;
+    City city;
+    std::string dominentpol;
+    Iaqi iaqi;
+    Time time;
+    Forecast forecast;
+    Debug debug;
+
+public:
+    Data() = default;
+    virtual ~Data() = default;
+
+    inline const long & get_aqi() const { return aqi; }
+    inline void set_aqi(const long & value) { this->aqi = value; }
+
+    inline const long & get_idx() const { return idx; }
+    inline void set_idx(const long & value) { this->idx = value; }
+
+    inline const std::vector<Attributions> & get_attributions() const { return attributions; }
+    inline void set_attributions(const std::vector<Attributions> & value) { this->attributions = value; }
+
+    inline const City & get_city() const { return city; }
+    inline void set_city(const City & value) { this->city = value; }
+
+    inline const std::string & get_dominentpol() const { return dominentpol; }
+    inline void set_dominentpol(const std::string & value) { this->dominentpol = value; }
+
+    inline const Iaqi & get_iaqi() const { return iaqi; }
+    inline void set_iaqi(const Iaqi & value) { this->iaqi = value; }
+
+    inline const Time & get_time() const { return time; }
+    inline void set_time(const Time & value) { this->time = value; }
+
+    inline const Forecast & get_forecast() const { return forecast; }
+    inline void set_forecast(const Forecast & value) { this->forecast = value; }
+
+    inline const Debug & get_debug() const { return debug; }
+    inline void set_debug(const Debug & value) { this->debug = value; }
+};
+
+
 
 #endif // MODELS_H
