@@ -139,5 +139,17 @@ using Sync = std::string;
 class Debug: public ParamAdapter<Sync> {};
 
 
+using V = double;
+class Co   : public ParamAdapter<V> {};
+class H    : public ParamAdapter<V> {};
+class No2  : public ParamAdapter<V> {};
+class O3   : public ParamAdapter<V> {};
+class P    : public ParamAdapter<V> {};
+class Pm10 : public ParamAdapter<V> {};
+class Pm25 : public ParamAdapter<V> {};
+class So2  : public ParamAdapter<V> {};
+class T    : public ParamAdapter<V> {};
+
+
 
 #endif // MODELS_H
