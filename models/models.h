@@ -40,26 +40,27 @@ private:
 
 public:
     City() = default;
-    City(std::string name, std::string url, std::string location, std::array<double, 2> geo);
+    City(std::string name, std::string url, std::string location, std::array<double, 2> geo)
+        : name(name), url(url), location(location), geo(geo) {}
     virtual ~City() = default;
 
-    std::string get_url() const;
-    void set_url(std::string url);
+    std::string get_url() const { return url; }
+    void set_url(std::string url) { this->url = url; }
 
-    std::string get_name() const;
-    void set_name(std::string name);
+    std::string get_name() const { return name; }
+    void set_name(std::string name) { this->name = name; }
 
-    std::string get_location() const;
-    void set_location(std::string location);
+    std::string get_location() const { return location; }
+    void set_location(std::string location) { this->location = location; }
 
-    std::array<double, 2> get_geo() const;
-    void set_geo(std::array<double, 2>  value);
+    std::array<double, 2> get_geo() const { return geo; }
+    void set_geo(std::array<double, 2>  value) { this->geo = value; }
 
-    double get_geo_latitude() const;
-    void set_geo_latitute(double lat);
+    double get_geo_latitude() const { return geo[0]; }
+    void set_geo_latitute(double lat) { geo[0] = lat; }
 
-    double get_geo_longitude() const;
-    void set_geo_longitude(double lon);
+    double get_geo_longitude() const { return geo[1]; }
+    void set_geo_longitude(double lon) { geo[1] = lon; }
 };
 
 
